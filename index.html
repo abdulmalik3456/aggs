@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ورشة العمل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+    body {
+      margin: 0;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+    header {
+      background-color: #212529;
+      color: white;
+      padding: 15px 30px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .main {
+      height: calc(100vh - 60px);
+      background-image: url('your-image.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+      text-align: center;
+    }
+    .center-image {
+      max-width: 800px;
+      max-height: 800px;
+      margin-bottom: 30px;
+      display: block;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    .enter-button {
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+    .enter-button:hover {
+      background-color: #0b5ed7;
+    }
+    .page {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .login-box {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 18px;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      font-size: 18px;
+    }
+    .sidebar {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 260px;
+      height: 100%;
+      background-color: #343a40;
+      color: white;
+      padding-top: 70px;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .sidebar a {
+      display: block;
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 1px solid #555;
+      transition: background-color 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .toggle-sidebar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #198754;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>لوحة تحكم الورشة</header>
+
+  <div class="main" id="mainPage">
+    <img src="1.jpeg" alt="شعار الورشة" class="center-image">
+    <button class="enter-button" onclick="showLoginPage()">الدخول إلى البرنامج</button>
+  </div>
+
+  <div class="page" id="loginPage">
+    <div class="login-box">
+      <h2>أدخل الرقم السري للدخول</h2>
+      <input type="password" id="password" maxlength="4" placeholder="••••">
+      <br><br>
+      <button class="enter-button" onclick="checkPassword()">دخول</button>
+    </div>
+  </div>
+
+  <div class="page" id="dashboard">
+    <button class="toggle-sidebar" onclick="toggleSidebar()">القائمة</button>
+    <h2>تم تسجيل الدخول بنجاح</h2>
+    <p>مرحبًا بك في نظام إدارة الورشة</p>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <a href="#">1. الموظفين</a>
+    <a href="#">2. العمال</a>
+    <a href="#">3. الفواتير</a>
+    <a href="a1.html">4. مفتاح الورشة</a>
+    <a href="#">5. سوق العمل</a>
+    <a href="#">6. الرواتب</a>
+  </div>
+
+  <script>
+    function showLoginPage() {
+      document.getElementById('mainPage').style.display = 'none';
+      document.getElementById('loginPage').style.display = 'block';
+    }
+
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      if (password === '3989') {
+        document.getElementById('loginPage').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+      } else {
+        alert('كلمة المرور غير صحيحة');
+      }
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.style.display = (sidebar.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>مفتاح الورشة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+      text-align: center;
+      padding: 50px 20px;
+      color: #333;
+      direction: ltr;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #0d6efd;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    .code-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .code-inputs input {
+      width: 55px;
+      height: 65px;
+      font-size: 30px;
+      text-align: center;
+      border-radius: 10px;
+      border: 2px solid #bbb;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .code-inputs input:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+      outline: none;
+    }
+
+    .check-button,
+    .home-button {
+      padding: 12px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .check-button {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    .check-button:hover {
+      background-color: #0b5ed7;
+    }
+
+    .home-button {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .home-button:hover {
+      background-color: #5a6268;
+    }
+
+    .result-message {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+<s>    </s>
+<s>    </s>
+<s>    </s>
+<s>    </s>
+<s>    </s>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>المفتاح مخبأ تحت ****** اعثر عليه</h2>
+  
+
+  
+
+  <button class="check-button" onclick="checkCode()">انقر للوصول للتلميح</button>
+  <button class="home-button" onclick="goHome()">العودة إلى الصفحة الرئيسية</button>
+
+  <div class="result-message" id="result"></div>
+
+  <script>
+    const correctCode = "2468";
+
+    function moveToNext(el, index) {
+      if (el.value.length === 1 && index < 3) {
+        document.querySelectorAll('.code-inputs input')[index + 1].focus();
+      }
+    }
+
+    function checkCode() {
+      const inputs = document.querySelectorAll('.code-inputs input');
+      let entered = "";
+      inputs.forEach(inp => entered += inp.value);
+      const result = document.getElementById('result');
+      if (entered === correctCode) {
+        result.style.color = "green";
+        result.innerHTML = "🔑 المفتاح في الدرج السري! أحسنت!";
+      } else {
+        result.style.color = "red";
+        result.innerHTML = "سوف يتم التشغيل الان";
+      }
+    }
+
+    function goHome() {
+      window.location.href = "index.html"; // غيّر هذا إذا كانت صفحتك الرئيسية مختلفة
+    }
+  </script>
+</body>
+</html>
